@@ -1,3 +1,4 @@
+// nesse código iremos realizar os teste de seguir reto e testar os sensores.
 #define pinSensorD 11
 #define pinSensorE 12
 
@@ -30,6 +31,7 @@ void loop() {
   Serial.print(" e ");
   Serial.println(estadoE);
   if (estadoD && estadoE) {
+   // Seguir  reto.
      digitalWrite(pinMotorD2, LOW); 
      analogWrite(pinMotorD1, velocidade);
      digitalWrite(pinMotorE1, LOW);
@@ -37,6 +39,7 @@ void loop() {
   }
 
   if (!estadoD && !estadoE) {
+   // Parar.
      digitalWrite(pinMotorD1, LOW);
      digitalWrite(pinMotorD2, LOW);
      digitalWrite(pinMotorE1, LOW);
@@ -44,6 +47,7 @@ void loop() {
   }
 
   if (!estadoD && estadoE) {
+   // Curvar um pouco para a direita.
      digitalWrite(pinMotorE1, LOW);
      analogWrite(pinMotorE2, velocidade_curva);
      digitalWrite(pinMotorD1, LOW);
@@ -51,6 +55,7 @@ void loop() {
   }
 
   if (estadoD && !estadoE) {
+   // Curvar um pouco para a esquerda.
      digitalWrite(pinMotorD2, LOW);
      analogWrite(pinMotorD1, velocidade_curva);
      digitalWrite(pinMotorE2, LOW);
